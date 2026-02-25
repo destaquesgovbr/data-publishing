@@ -1,0 +1,23 @@
+name: Deploy Publishing DAGs to Composer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dags/**'
+      - 'src/data_publishing/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    uses: destaquesgovbr/reusable-workflows/.github/workflows/composer-deploy-dags.yml@v1
+    with:
+      dags_local_path: dags
+      dags_bucket_subdir: data-publishing
+      plugins_local_path: src/data_publishing
+      check_imports: true
+      rsync_exclude: 'requirements\.txt$'

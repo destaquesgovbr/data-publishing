@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "data-publishing"
+version = "0.1.0"
+description = "Data publishing pipelines - HuggingFace sync DAGs"
+license = "AGPL-3.0"
+packages = [{include = "data_publishing", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+huggingface-hub = ">=0.27.0"
+pyarrow = ">=14.0.0"
+requests = ">=2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+apache-airflow = ">=3.0.1"
+apache-airflow-providers-postgres = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
