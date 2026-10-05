@@ -5,7 +5,7 @@ _commit:
 project_name: data-publishing
 astro_runtime_version: 3.0-14
 python_requirements: "huggingface-hub==0.27.0\npyarrow\u003e=14.0.0\nrequests\u003e=2.31.0\npsycopg2-binary\u003e=2.9.9"
-postgres_connection: "postgresql://govbrnews_app:PASSWORD@34.39.145.55:5432/govbrnews"
+postgres_connection: "postgresql://USER:PASS@HOST:5432/govbrnews"
 extra_env_vars: "AIRFLOW_CONN_HUGGINGFACE_DEFAULT=http://:HF_TOKEN@"
 has_plugins: True
 plugin_modules: "data_publishing"
