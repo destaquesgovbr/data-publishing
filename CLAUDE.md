@@ -26,9 +26,9 @@ A DAG orquestra o sync PostgreSQL → HuggingFace. A logica de negocio esta nos 
 
 ### Deploy
 
-O workflow usa o reusable workflow `composer-deploy-dags.yml@v1` do repo `reusable-workflows`:
-- DAGs vao para `{bucket}/dags/data-publishing/`
-- Plugins vao para `{bucket}/plugins/data-publishing/`
+O workflow usa o reusable workflow `airflow-deploy-dags.yml@v3` do repo `reusable-workflows`, que publica em cada bucket da lista dele (durante a migracao, o do Cloud Composer e o `destaquesgovbr-airflow` do Airflow proprio):
+- DAGs vao para `{bucket}/dags/data-publishing/` (sem o `requirements.txt`)
+- Plugins vao para `{bucket}/plugins/data_publishing/`
 
 ### Airflow Connections
 
@@ -57,7 +57,7 @@ poetry run pytest tests/unit/
 
 | Repo | Descricao |
 |------|-----------|
-| `reusable-workflows` | Workflow reutilizavel de deploy (v1.2.0+) |
+| `reusable-workflows` | Workflow reutilizavel de deploy (`airflow-deploy-dags.yml@v3`) |
 | `scraper` | Scrapers que alimentam o PostgreSQL |
 | `data-platform` | Enriquecimento (Cogfy), embeddings, Typesense |
 | `infra` | Terraform (Cloud SQL, Composer, etc) |
