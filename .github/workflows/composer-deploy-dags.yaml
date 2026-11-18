@@ -1,4 +1,4 @@
-name: Deploy Publishing DAGs to Composer
+name: Deploy Publishing DAGs to Airflow
 
 on:
   push:
@@ -14,7 +14,9 @@ permissions:
 
 jobs:
   deploy:
-    uses: destaquesgovbr/reusable-workflows/.github/workflows/composer-deploy-dags.yml@v1
+    # Publica no bucket do Composer e no do Airflow próprio (Fase 3 da migração);
+    # a lista de buckets é o default do reusable workflow.
+    uses: destaquesgovbr/reusable-workflows/.github/workflows/airflow-deploy-dags.yml@v3
     with:
       dags_local_path: dags
       dags_bucket_subdir: data-publishing
