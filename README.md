@@ -11,7 +11,7 @@ Sincroniza noticias do PostgreSQL (Cloud SQL) para o HuggingFace, mantendo dois 
 
 ## Como funciona
 
-A DAG `sync_postgres_to_huggingface` roda diariamente as 6 AM UTC no Cloud Composer:
+A DAG `sync_postgres_to_huggingface` roda diariamente as 06h (horario de Brasilia) no Airflow proprio do projeto (VM `destaquesgovbr-airflow`):
 
 1. Busca noticias do dia anterior no PostgreSQL
 2. Consulta IDs ja existentes no HuggingFace (via Dataset Viewer API)
@@ -24,7 +24,7 @@ Uso de memoria: ~10MB (apenas novos registros) vs ~1-2GB se baixasse o dataset c
 ## Estrutura
 
 ```
-src/data_publishing/hf/    # Modulos Python (deploy como plugins no Composer)
+src/data_publishing/hf/    # Modulos Python (deploy como plugins do Airflow)
 dags/                      # DAGs Airflow
 tests/unit/                # Testes unitarios
 ```
