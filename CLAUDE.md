@@ -30,7 +30,7 @@ Os crons usam o fuso padrao do Airflow (`America/Sao_Paulo`): o `0 6 * * *` da D
 
 ### Deploy
 
-O workflow usa o reusable workflow `airflow-deploy-dags.yml@v3` do repo `reusable-workflows`, que publica no bucket `destaquesgovbr-airflow` do Airflow proprio (a lista de buckets e o default da reusable, e o do Composer sai dela so la):
+O workflow usa o reusable workflow `airflow-deploy-dags.yml@v3` do repo `reusable-workflows`, que publica no bucket `destaquesgovbr-airflow` do Airflow proprio (a lista de buckets e o default da reusable, e o do Composer sai dela so la, na reusable-workflows#7; ate a tag `v3` apontar para essa versao, o deploy tambem publica nele):
 - DAGs vao para `{bucket}/dags/data-publishing/` (sem o `requirements.txt`)
 - Plugins vao para `{bucket}/plugins/data_publishing/`
 

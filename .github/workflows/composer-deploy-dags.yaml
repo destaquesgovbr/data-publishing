@@ -15,7 +15,7 @@ permissions:
 jobs:
   deploy:
     # Publica no bucket do Airflow próprio (destaquesgovbr-airflow). A lista de buckets é
-    # o default do reusable workflow: o do Composer sai dela no desligamento, só lá.
+    # o default do reusable workflow: o do Composer sai dela só lá (reusable-workflows#7).
     uses: destaquesgovbr/reusable-workflows/.github/workflows/airflow-deploy-dags.yml@v3
     with:
       dags_local_path: dags
